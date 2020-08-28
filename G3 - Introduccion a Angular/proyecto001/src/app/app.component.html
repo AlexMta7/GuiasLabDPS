@@ -1,0 +1,30 @@
+<h1 style="text-align:center">
+  Bienvenido a {{title}}
+</h1>
+
+<body>
+  
+<div> Primer ejercicio
+  <p>Nombre del empleado {{nombre}}</p>
+  <p>La edad del empleado es: {{edad}} </p>
+  <p *ngIf="edad>=18">Es mayor de edad</p>
+  <table border="1">
+    <tr>
+      <td>Sueldo</td>
+    </tr>
+    <tr *ngFor="let sueldo of sueldos">
+      <td>{{sueldo}} </td>
+    </tr>
+  </table>
+  <p>Los ultimos tres sueldos son: {{sueldos[0]}}, {{sueldos[1]}}, {{sueldos[2]}} </p>
+  <p>En los ultimos 3 meses ha ganado: {{sueldos[0]+sueldos[1]+sueldos[2]}} </p> Cualquier forma funciona
+  <p>En los ultimos 3 meses ha ganado: {{ultimos3sueldos()}} </p>
+  <p>El empleado dentro de 5 años tendrá: {{edad+5}} </p>
+  <p>Es activo: {{esActivo()}} </p>
+  <p>Puede visitar el sitio ingresando <a href="{{sitio}}">aquí</a></p>
+
+  <p>{{contador}}</p>
+  <button (click)="incrementar()">Sumar 1</button>
+  <button (click)="decrementar()">Restar 1</button>
+  </div>
+</body>
