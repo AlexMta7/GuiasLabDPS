@@ -28,3 +28,5 @@ export class ScrumDetailComponent{
     @Input()
     scrum:Scrum;
 }
+
+//TODO: Me quede cabal para empezar el paso 11
