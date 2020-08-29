@@ -52,4 +52,5 @@ export class PacienteComponent implements OnInit {
     }
   }
 
+  //Te iba a poner comentarios explicandote algo pero no se que ponerte xdddd por que igual no da 
 }
