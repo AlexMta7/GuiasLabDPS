@@ -1,31 +1,77 @@
-<div class="container">
-    <h2>Formulario de paciente</h2>
+<br>
+<div class="container row row-cols-2 w-100 border ml-3">
+    <div class="row mb-4 ml-2 pt-3 pr-4">
+        <div class="container border">
+            <!-- <div class="row"> -->
+            <div class="col">
+            <h2>Formulario de paciente</h2>
+            </div>
+        
+            <form class="border col">
+                <div class="form-group">
+                    <label>Nombre de titular</label>
+                    <input type="text" class="form-control border border-success" [(ngModel)]="nombre">   
+                </div>
+                <div class="form-group ">
+                    <label for="dui">DUI</label>
+                    <input type="text" class="form-control border border-success" [(ngModel)]="dui">
+                </div>
+                <div class="form-group ">
+                    <label for="mascota">Nombre de mascota</label>
+                    <input type="text" class="form-control border border-success" [(ngModel)]="mascota">
+                </div>
+                <div class="form-group ">
+                    <label for="tratamiento">Tratamiento</label>
+                    <input type="text" class="form-control border border-success" [(ngModel)]="tratamiento">
+                </div>
+                <div class="form-group">
+                    <label for="medicamento">Medicamento</label>
+                    <input type="text" class="form-control border border-success" [(ngModel)]="medicamento">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md mb-4">
+                        <label for="costo" class="input-group">Costo</label>
+                        <input type="text" class="form-control border border-success" [(ngModel)]="costo">
+                    </div>
+                    <div class="form-group col-md mb-4">
+                        <label for="visitas" class="input-group">Visitas</label>
+                        <input type="text" class="form-control border border-success" [(ngModel)]="visitas">
+                    </div>
+                </div>
+                <div class="form-row">
+                <button class="btn btn-primary col-md-5" (click)="ingresar()">Ingresar paciente</button>
+                <button class="btn btn-danger col-md-5" >Limpiar</button>
+                </div>
+                <br>
+            </form>
+            <!-- </div> -->
+            <br>
+        </div>
+    </div>
+    <!-- <div class="container border border-primary"> -->
+        <table [hidden]="contador==0" class="table mt-3">
+            <thead>
+                <tr class="">
+                    <th>Nombre</th>
+                    <th>DUI</th>
+                    <th>Costo</th>
+                    <th>Descuento</th>
+                    <th>visitas</th>
+                    <th>{{contador}} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of registro">
+                    <td>{{cliente.nombre}} </td>
+                    <td>{{cliente.dui}} </td>
+                    <td>{{cliente.costo}} </td>
+                    <td>{{cliente.descuento}} </td>
+                    <td>{{cliente.visitas}} </td>
+                </tr>
+            </tbody>
+        </table>
+    <!-- </div> -->
+  </div>
 
-    <form >
-        <div class="form-group">
-            <label for="nombre">Nombre titular</label>
-            <input type="text" class="form-control" [(ngModel)]="nombre">
-        </div>
-        <div class="form-group">
-            <label for="dui">DUI</label>
-            <input type="text" class="form-control" [(ngModel)]="dui">
-        </div>
-        <div class="form-group">
-            <label for="mascota">Nombre de mascota</label>
-            <input type="text" class="form-control" [(ngModel)]="mascota">
-        </div>
-        <div class="form-group">
-            <label for="tratamiento">Tratamiento</label>
-            <input type="text" class="form-control" [(ngModel)]="tratamiento">
-        </div>
-        <div class="form-group">
-            <label for="medicamento">Medicamento</label>
-            <input type="text" class="form-control" [(ngModel)]="medicamento">
-        </div>
-        <div class="form-group">
-            <label for="costo">Costo</label>
-            <input type="text" class="form-control" [(ngModel)]="costo" (change)="descuento()">
-        </div>
-        <button class="btn btn-primary" (click)="ingresar()">Ingresar paciente</button>
-    </form>
-</div>
+<br>
+
