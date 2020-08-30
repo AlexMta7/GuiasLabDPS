@@ -45,7 +45,7 @@ export class PacienteComponent implements OnInit {
 
   descuento(){
     if(this.visitas==2){
-      this.desc = this.costo-(this.costo*0.05);
+      this.desc = this.costo-(this.costo*0.05); // Probando cosas 
     }
     else if(this.visitas>=4){
       this.desc = this.costo-(this.costo*0.1);
@@ -53,4 +53,5 @@ export class PacienteComponent implements OnInit {
   }
 
   //Te iba a poner comentarios explicandote algo pero no se que ponerte xdddd por que igual no da 
+  // Esto es una prueba
 }
