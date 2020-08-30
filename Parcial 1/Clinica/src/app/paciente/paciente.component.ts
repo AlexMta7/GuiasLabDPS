@@ -45,11 +45,13 @@ export class PacienteComponent implements OnInit {
 
   descuento(){
     if(this.visitas==2){
-      this.desc = this.costo-(this.costo*0.05); // Probando cosas 
+      this.desc = this.costo-(this.costo*0.05);
     }
     else if(this.visitas>=4){
       this.desc = this.costo-(this.costo*0.1);
     }
+
+    return this.desc; // Devolviendo el valor de descuento
   }
 
   //Te iba a poner comentarios explicandote algo pero no se que ponerte xdddd por que igual no da 
