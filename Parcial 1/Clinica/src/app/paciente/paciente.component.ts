@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class PacienteComponent implements OnInit {
   nombre: string;
+  id: number;
   registro=[]; 
   paciente: any;
   dui: number;
@@ -21,11 +22,14 @@ export class PacienteComponent implements OnInit {
   visitas: number;
   contador: number;
   opcion:number;
+  valor=<HTMLAudioElement>document.getElementById("");
+  mostrar=[];
 
   constructor() { }
 
   ngOnInit(): void {
     this.nombre="";
+    this.id=1;
     this.registro[''];
     this.nombre ="";
     this.dui!=0;
@@ -37,16 +41,28 @@ export class PacienteComponent implements OnInit {
     this.desc=this.costo;
     this.visitas=1;
     this.contador=0;
+    //Parte para mostrar datos
+    this.mostrar=[''];
 
   }
 
   ingresar(){
     this.descuento();
-    this.paciente={"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
     // this.paciente={"nombre":this.nombre};
     // this.registro.push(this.paciente);
     this.contador++;
+  }
+
+  mostrarDatos(){
+    this.valor= <HTMLAudioElement>document.getElementById("this.valor");
+    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+    this.registro.push(this.paciente);
+    
+    
+
+    
   }
 
   descuento(){
@@ -59,6 +75,6 @@ export class PacienteComponent implements OnInit {
     else if(this.visitas>=4){
       this.desc = this.costo-(this.costo*0.1);
     }
+    return this.desc;
   }
- 
 }
