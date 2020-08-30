@@ -31,7 +31,7 @@ export class PacienteComponent implements OnInit {
     this.tratamiento ="";
     this.medicamento="";
     this.costo=0;
-    this.desc=0;
+    this.desc=15;
     this.visitas=0;
     this.contador=0;
   }
