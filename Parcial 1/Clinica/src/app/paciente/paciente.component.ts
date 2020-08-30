@@ -57,7 +57,7 @@ export class PacienteComponent implements OnInit {
     else if(this.visitas>=4){
       this.desc = this.costo-(this.costo*0.1);
     }
-    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
     // this.paciente={"nombre":this.nombre};
     // this.registro.push(this.paciente);
@@ -72,6 +72,7 @@ export class PacienteComponent implements OnInit {
   }
 
   descuento(){
+    this.desc=this.costo;
     if(this.visitas<2){
       this.desc=this.costo;
     }
