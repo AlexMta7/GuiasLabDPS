@@ -14,12 +14,13 @@ export class PacienteComponent implements OnInit {
   dui: number;
   mascota: string;
   tratamiento: string;
+  medicinas=[];
   medicamento: string;
   costo: number;
   desc: number;
   visitas: number;
   contador: number;
-
+  opcion:number;
 
   constructor() { }
 
@@ -27,39 +28,37 @@ export class PacienteComponent implements OnInit {
     this.nombre="";
     this.registro[''];
     this.nombre ="";
-    this.dui=0;
+    this.dui!=0;
     this.mascota="";
     this.tratamiento ="";
+    this.medicinas=['','Parecetamol','Acetaminofén','Pastillas'];
     this.medicamento="";
-    this.costo=0;
-    this.desc=0;
-    this.visitas=0;
+    this.costo!=0;
+    this.desc=this.costo;
+    this.visitas=1;
     this.contador=0;
+
   }
 
   ingresar(){
-    // this.descuento();
-    // if(this.visitas==2){
-    //   this.desc = this.costo-(this.costo*0.05);
-    // }
-    // else if(this.visitas>=4){
-    //   this.desc = this.costo-(this.costo*0.1);
-    // }
-    this.paciente={"nombre":this.nombre,"dui":this.dui,"costo":this.costo,"descuento":this.desc,"visitas":this.visitas};
+    this.descuento();
+    this.paciente={"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
     // this.paciente={"nombre":this.nombre};
     // this.registro.push(this.paciente);
     this.contador++;
   }
 
-  // descuento(){
-  //   if(this.visitas==2){
-  //     this.desc = this.costo-(this.costo*0.05);
-  //   }
-  //   else if(this.visitas>=4){
-  //     this.desc = this.costo-(this.costo*0.1);
-  //   }
-  // }
-
-  //Te iba a poner comentarios explicandote algo pero no se que ponerte xdddd por que igual no da 
+  descuento(){
+    if(this.visitas<2){
+      this.desc=this.costo;
+    }
+    else if(this.visitas==2){
+      this.desc = this.costo-(this.costo*0.05);
+    }
+    else if(this.visitas>=4){
+      this.desc = this.costo-(this.costo*0.1);
+    }
+  }
+ 
 }
