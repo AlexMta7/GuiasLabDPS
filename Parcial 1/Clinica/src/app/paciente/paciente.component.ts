@@ -47,7 +47,16 @@ export class PacienteComponent implements OnInit {
   }
 
   ingresar(){
-    this.descuento();
+    this.desc=this.costo;
+    if(this.visitas<2){
+      this.desc=this.costo;
+    }
+    else if(this.visitas==2){
+      this.desc = this.costo-(this.costo*0.05);
+    }
+    else if(this.visitas>=4){
+      this.desc = this.costo-(this.costo*0.1);
+    }
     this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
     // this.paciente={"nombre":this.nombre};
@@ -59,9 +68,6 @@ export class PacienteComponent implements OnInit {
     this.valor= <HTMLAudioElement>document.getElementById("this.valor");
     this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
-    
-    
-
     
   }
 

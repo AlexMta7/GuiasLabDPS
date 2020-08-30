@@ -71,7 +71,7 @@
                     <th>DUI</th>
                     <th>Medicamento</th>
                     <th>Costo</th>
-                    <!-- <th>Descuento</th> -->
+                    <th>Descuento</th>
                     <th>visitas</th>
                     <!-- <th>{{contador}} </th> -->
                 </tr>
@@ -83,7 +83,7 @@
                     <td class="table-info">{{cliente.dui}} </td>
                     <td class="table-info">{{cliente.medicamento}} </td>
                     <td class="table-info">{{cliente.costo}} </td>
-                    <!-- <td class="table-info">{{cliente.desc}} </td> -->
+                    <td class="table-info">{{cliente.desc}} </td>
                     <td class="table-info">{{cliente.visitas}} </td>
                 </tr>
                 <tr>Registro(s): {{contador}} </tr>
@@ -114,22 +114,22 @@
             </div>
             <div class="form-group ">
                 <label>DUI</label>
-                <input [(ngModel)]="paciente.dui" type="text" class="form-control border border-success" value="{{control.nombre}} " readonly>
+                <input type="text" class="form-control border border-success" value="{{control.dui}} " readonly>
             </div>
             <div class="form-group ">
                 <label>Nombre de mascota</label>
-                <input [(ngModel)]="paciente.mascota" type="text" class="form-control border border-success" value="{{control.nombre}} " readonly>
+                <input type="text" class="form-control border border-success" value="{{control.mascota}} " readonly>
             </div>
             <div class="form-group ">
                 <label>Tratamiento</label>
-                <input type="text" class="form-control border border-success" [(ngModel)]="tratamiento" value="{{control.nombre}} " readonly>
+                <input type="text" class="form-control border border-success" value="{{control.tratamiento}} " readonly>
             </div>
             <div class="form-group">
                 <label>Medicamento</label>
-                <!-- <input type="text" class="form-control border border-success" [(ngModel)]="medicamento"> -->
-                <select class="form-control border border-success" [(ngModel)]="medicamento">
+                <input type="text" class="form-control border border-success" value="{{control.medicamento}} " readonly>
+                <!-- <select [(ngModel)]="medicamento" class="form-control border border-success">
                     <option *ngFor="let medi of medicinas" [value]="medi">{{medi}} </option>
-                </select>
+                </select> -->
             </div>
             <div class="form-row">
                 <div class="form-group col-md mb-4">
@@ -138,12 +138,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text border border-success">$</span>
                         </div>
-                            <input type="text" class="form-control border border-success" [(ngModel)]="costo">
+                            <input type="text" class="form-control border border-success" value="{{control.costo}} " readonly>
                         </div>
                 </div>
                 <div class="form-group col-md mb-4">
                     <label class="input-group">Visitas</label>
-                    <input id="" type="text" class="form-control border border-success" [(ngModel)]="visitas" (change)="descuento()">
+                    <input type="text" class="form-control border border-success" value="{{control.visitas}} " readonly>
                 </div>
             </div>
             <div class="form-row">
