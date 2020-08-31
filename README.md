@@ -1,3 +1,3 @@
 # GuiasLabDPS
 
-## https://veterinariaparcial.000webhostapp.com/ 
+## Enlace Parcial1: https://veterinariaparcial.000webhostapp.com/ 
