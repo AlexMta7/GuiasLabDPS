@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group col-md mb-4">
                         <label class="input-group">Visitas</label>
-                        <input id="visitas" type="text" class="form-control border border-success" [(ngModel)]="visitas" >
+                        <input id="visitas" type="text" class="form-control border border-success" readonly>
                     </div>
                 </div>
                 <div class="form-row">
@@ -82,8 +82,8 @@
                     <td class="table-info">{{cliente.nombre}} </td>
                     <td class="table-info">{{cliente.dui}} </td>
                     <td class="table-info">{{cliente.medicamento}} </td>
-                    <td class="table-info">{{cliente.costo}} </td>
-                    <td class="table-info">{{cliente.desc}} </td>
+                    <td class="table-info">$ {{cliente.costo}} </td>
+                    <td class="table-info">$ {{cliente.desc}} </td>
                     <td class="table-info">{{cliente.visitas}} </td>
                 </tr>
                 <tr>Registro(s): {{contador}} </tr>

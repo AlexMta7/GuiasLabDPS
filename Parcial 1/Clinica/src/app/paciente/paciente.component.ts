@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 export class PacienteComponent implements OnInit {
   nombre: string;
   id: number;
-  registro=[]; 
+  registro=[];
   paciente: any;
   dui: number;
   mascota: string;
@@ -19,6 +19,7 @@ export class PacienteComponent implements OnInit {
   medicamento: string;
   costo: number;
   desc: number;
+  total: number;
   visitas: number;
   contador: number;
   opcion:number;
@@ -38,7 +39,8 @@ export class PacienteComponent implements OnInit {
     this.medicinas=['','Parecetamol','Acetaminofén','Pastillas'];
     this.medicamento="";
     this.costo!=0;
-    this.desc=this.costo;
+    this.desc=0;
+    this.total=0;
     this.visitas=1;
     this.contador=0;
     //Parte para mostrar datos
@@ -47,28 +49,48 @@ export class PacienteComponent implements OnInit {
   }
 
   ingresar(){
-    this.desc=this.costo;
     if(this.visitas<2){
-      this.desc=this.costo;
+      this.desc=0;
+      //this.total=this.desc;
     }
     else if(this.visitas==2){
-      this.desc = this.costo-(this.costo*0.05);
+      this.desc = (this.costo*0.05);
+      //this.total=this.desc;
+    }
+    else if(this.visitas==3){
+      this.desc=0;
     }
     else if(this.visitas>=4){
-      this.desc = this.costo-(this.costo*0.1);
+      this.desc = (this.costo*0.1);
+      //this.total= this.desc;
     }
-    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+
+    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,visitas:this.visitas++/*"visitas":this.visitas*/};
     this.registro.push(this.paciente);
+    this.contador++;
+   // this.visitas++;
+    for(let control of this.paciente){
+      if(control.id==this.paciente.id){
+        // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,visitas:this.visitas/*"visitas":this.visitas*/};
+        // this.registro.push(this.paciente);
+
+      }
+      else{
+        // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+        // this.registro.push(this.paciente);
+        // this.contador++;
+      }
+    }
     // this.paciente={"nombre":this.nombre};
     // this.registro.push(this.paciente);
-    this.contador++;
+
   }
 
   mostrarDatos(){
     this.valor= <HTMLAudioElement>document.getElementById("this.valor");
     this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
     this.registro.push(this.paciente);
-    
+
   }
 
   descuento(){
