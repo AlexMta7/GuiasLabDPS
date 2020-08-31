@@ -22,9 +22,6 @@ export class PacienteComponent implements OnInit {
   total: number;
   visitas: number;
   contador: number;
-  opcion:number;
-  valor=<HTMLAudioElement>document.getElementById("");
-  mostrar=[];
 
   constructor() { }
 
@@ -43,67 +40,71 @@ export class PacienteComponent implements OnInit {
     this.total=0;
     this.visitas=1;
     this.contador=0;
-    //Parte para mostrar datos
-    this.mostrar=[''];
 
   }
 
   ingresar(){
     if(this.visitas<2){
       this.desc=0;
-      //this.total=this.desc;
+      this.total=this.costo - this.desc;
     }
     else if(this.visitas==2){
       this.desc = (this.costo*0.05);
-      //this.total=this.desc;
+      this.total=this.costo - this.desc;
     }
     else if(this.visitas==3){
       this.desc=0;
+      this.total=this.costo - this.desc;
     }
     else if(this.visitas>=4){
       this.desc = (this.costo*0.1);
-      //this.total= this.desc;
+      this.total=this.costo - this.desc;
     }
 
-    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,visitas:this.visitas++/*"visitas":this.visitas*/};
+    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,total:this.total,"visitas":this.visitas}/*"visitas":this.visitas++ de esta forma se autoincrementa*/
     this.registro.push(this.paciente);
+    
     this.contador++;
-   // this.visitas++;
-    for(let control of this.paciente){
-      if(control.id==this.paciente.id){
-        // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,visitas:this.visitas/*"visitas":this.visitas*/};
-        // this.registro.push(this.paciente);
-
-      }
-      else{
-        // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
-        // this.registro.push(this.paciente);
-        // this.contador++;
-      }
-    }
-    // this.paciente={"nombre":this.nombre};
-    // this.registro.push(this.paciente);
-
   }
 
   mostrarDatos(){
-    this.valor= <HTMLAudioElement>document.getElementById("this.valor");
-    this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
-    this.registro.push(this.paciente);
+   alert("Próximamente");
 
   }
 
-  descuento(){
-    this.desc=this.costo;
-    if(this.visitas<2){
-      this.desc=this.costo;
-    }
-    else if(this.visitas==2){
-      this.desc = this.costo-(this.costo*0.05);
-    }
-    else if(this.visitas>=4){
-      this.desc = this.costo-(this.costo*0.1);
-    }
-    return this.desc;
-  }
+  // descuento(){
+  //   this.desc=this.costo;
+  //   if(this.visitas<2){
+  //     this.desc=this.costo;
+  //   }
+  //   else if(this.visitas==2){
+  //     this.desc = this.costo-(this.costo*0.05);
+  //   }
+  //   else if(this.visitas>=4){
+  //     this.desc = this.costo-(this.costo*0.1);
+  //   }
+  //   return this.desc;
+  // }
+
+  // this.visitas++;
+    
+      // if(this.visitas==0){
+      //   this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,total:this.total,visitas:this.visitas/*"visitas":this.visitas*/};
+      //   this.registro.push(this.paciente);
+      //   // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,desc:this.desc,visitas:this.visitas/*"visitas":this.visitas*/};
+      //   // this.registro.push(this.paciente);
+
+      // }
+      // else{
+      //   for(let control of this.registro){
+      //     control.visitas=0;
+      //   }
+      //   // this.paciente={"id":this.id,"nombre":this.nombre,"dui":this.dui,"mascota":this.mascota,"tratamiento":this.tratamiento,"medicamento":this.medicamento,"costo":this.costo,"":this.desc,"visitas":this.visitas};
+      //   // this.registro.push(this.paciente);
+      //   // this.contador++;
+      // }
+    
+    // this.paciente={"nombre":this.nombre};
+    // this.registro.push(this.paciente);
+
 }

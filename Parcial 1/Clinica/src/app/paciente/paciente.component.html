@@ -11,7 +11,7 @@
                 <div class="form-row pt-2">
                     <div class="form-group col-md-7">
                         <label>Nombre de titular</label>
-                        <input id="nombre" [(ngModel)]="nombre" type="text" class="form-control border border-success" placeholder="Alex" required>   
+                        <input id="nombre" [(ngModel)]="nombre" type="text" class="form-control border border-success" placeholder="Nombre Apellido" required>   
                     </div>
                     <div class="form-group col-md-5">
                         <label>ID Cliente</label>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group col-md mb-4">
                         <label class="input-group">Visitas</label>
-                        <input id="visitas" type="text" class="form-control border border-success" readonly>
+                        <input [(ngModel)]="visitas" id="visitas" type="text" class="form-control border border-success">
                     </div>
                 </div>
                 <div class="form-row">
@@ -66,7 +66,7 @@
         <table [hidden]="contador==0" class="table mt-3 pl-9">
             <thead class="thead-light">
                 <tr class="">
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Nombre</th>
                     <th>DUI</th>
                     <th>Medicamento</th>
@@ -78,7 +78,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let cliente of registro">
-                    <td class="table-info">{{cliente.id}} </td>
+                    <!-- <td class="table-info">{{cliente.id}} </td> -->
                     <td class="table-info">{{cliente.nombre}} </td>
                     <td class="table-info">{{cliente.dui}} </td>
                     <td class="table-info">{{cliente.medicamento}} </td>
@@ -127,12 +127,13 @@
                         <label>Tratamiento</label>
                         <input type="text" class="form-control border border-primary" value="{{control.tratamiento}} " readonly>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md">
                         <label>Medicamento</label>
                         <input type="text" class="form-control border border-primary" value="{{control.medicamento}} " readonly>
                     </div>
+                </div>
+                <div class="form-row">
+                    
                     <div class="form-group col-md">
                         <label class="input-group">Costo</label>
                         <div class="input-group">
@@ -140,13 +141,27 @@
                                 <span class="input-group-text border border-primary">$</span>
                             </div>
                                 <input type="text" class="form-control border border-primary" value="{{control.costo}} " readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label class="input-group">Descuento</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
                             </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.desc}} " readonly>
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md mb-5">
-                        <label class="input-group">Descuento</label>
-                        <input type="text" class="form-control border border-primary" value="{{control.desc}} " readonly>
+                        <label class="input-group">Total</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.total}} " readonly>
+                        </div>
                     </div>
                     <div class="form-group col-md mb-4">
                         <label class="input-group">Visitas</label>
