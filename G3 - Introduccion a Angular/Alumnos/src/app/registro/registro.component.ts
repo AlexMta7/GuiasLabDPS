@@ -25,10 +25,10 @@ export class RegistroComponent implements OnInit {
   }
 
   ingresar(){
-    if(this.edad>0 && this.edad<18){
-      this.mayor="No";
-    }else{
+    if(this.edad>=18){
       this.mayor="Si";
+    }else{
+      this.mayor="No";
     }
     this.alumno={"nombre":this.nombre,"edad":this.edad,"mayor":this.mayor};
     this.registro.push(this.alumno);
