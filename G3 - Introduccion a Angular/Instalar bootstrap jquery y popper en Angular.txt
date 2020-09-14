@@ -1,0 +1,17 @@
+EN LA CONSOLA DE NODE
+
+npm install bootstrap --save
+npm install jquery --save
+npm install @popperjs/core --save
+
+EN EL ARCHIVO ANGULAR.JSON
+
+"styles": [
+      "src/styles.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+"scripts": [
+      "node_modules/jquery/dist/jquery.min.js", 
+      "node_modules/@popperjs/core/dist/umd/popper.min.js", 
+      "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
