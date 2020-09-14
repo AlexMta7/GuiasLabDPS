@@ -9,11 +9,11 @@ import { Alumno } from './models/alumno';
 export class AppComponent {
   title = 'crudAngular';
 
-  //Arreglo del tipo Alumno que tiene 3 registros almacenados
-  alumnoArray: Alumno[] = [
-    {id:1,name:"Alex",lastname:'Campos',age:35},
-    {id:2,name:"Maria",lastname:"Lopez",age:20},
-    {id:3,name:"Juan",lastname:"Castro",age:25}
+   //Arreglo del tipo Alumno que tiene 3 registros almacenados
+   alumnoArray: Alumno[] = [
+    {id:1, name:"Alex", lastname:"Campos", age:35},
+    {id:2, name:"Maria", lastname:"Lopez", age:20},
+    {id:3, name:"Juan", lastname:"Castro", age:25}
   ]
 
   //Atributo selecAlumno del tipo Alumno, por lo tanto puede almacenar un objeto
@@ -44,6 +44,4 @@ export class AppComponent {
       this.selectedAlumno = {id:0,name:'',lastname:'',age:0};
     }
   }
-
-  //TODO: voy por la parte de JavaScript (filtrar elementos de un Array)
 }

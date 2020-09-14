@@ -3,5 +3,4 @@ export class Alumno {
     name: string = '';
     lastname: string ='';
     age:number = 0;
-
 }
