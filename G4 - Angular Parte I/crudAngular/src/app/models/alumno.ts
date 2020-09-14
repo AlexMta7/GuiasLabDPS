@@ -3,4 +3,7 @@ export class Alumno {
     name: string = '';
     lastname: string ='';
     age:number = 0;
+    address: string = '';
+    phone: string = '';
+    mail: string = '';
 }

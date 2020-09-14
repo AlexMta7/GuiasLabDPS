@@ -13,7 +13,7 @@
   </a>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid pb-4">
   <div class="row">
       <div class="col-md-6 mt-4 ml-3"> 
           <!-- mt-4 (margin-top)-4 espacio en blanco vertical -->
@@ -21,27 +21,39 @@
               <li *ngFor="let alumno of alumnoArray" class="list-group-item list-group-item-action"
               (click)="openForEdit(alumno)"
               [class.active]="alumno == selectedAlumno">
-              <span class="badge badge-primary">{{alumno.id}} </span>
+              <span class="badge badge-primary ml-5">{{alumno.id}} </span>
               - {{alumno.name}}
               - {{alumno.lastname}}
               - {{alumno.age}}
+              - {{alumno.address}}
+              - {{alumno.phone}}
+              - {{alumno.mail}}
               </li>
           </u>
           <div class="card">
             <div class="card-body">
               <div class="card-title">
-                <h3>{{selectedAlumno.id==0 ? "Agregar Nuevo Alumno" : "Actualizar Alumno"}} </h3>
+                <h3 class="ml-5">{{selectedAlumno.id==0 ? "Agregar Nuevo Alumno" : "Actualizar Alumno"}} </h3>
               </div>
               <div class="form-group">
-                <input [(ngModel)]="selectedAlumno.name" type="text" placeholder="name" class="form-control">
+                <input [(ngModel)]="selectedAlumno.name" type="text" placeholder="name" class="form-control col-md-9 ml-5">
               </div>
               <div class="form-group">
-                <input [(ngModel)]="selectedAlumno.lastname" type="text" placeholder="lastname" class="form-control">
+                <input [(ngModel)]="selectedAlumno.lastname" type="text" placeholder="lastname" class="form-control col-md-9 ml-5">
               </div>
               <div class="form-group">
-                <input [(ngModel)]="selectedAlumno.age" type="text" placeholder="age" class="form-control">
+                <input [(ngModel)]="selectedAlumno.age" type="text" placeholder="age" class="form-control col-md-9 ml-5">
               </div>
-              <button class="btn btn-primary btn-space" (click)="addOrEdit()">Guardar</button>
+              <div class="form-group">
+                <input [(ngModel)]="selectedAlumno.address" type="text" placeholder="address" class="form-control col-md-9 ml-5">
+              </div>
+              <div class="form-group">
+                <input [(ngModel)]="selectedAlumno.phone" type="text" placeholder="phone" class="form-control col-md-9 ml-5">
+              </div>
+              <div class="form-group">
+                <input [(ngModel)]="selectedAlumno.mail" type="text" placeholder="mail" class="form-control col-md-9 ml-5">
+              </div>
+              <button class="btn btn-primary btn-space ml-5" (click)="addOrEdit()">Guardar</button>
               <button *ngIf="selectedAlumno.id !== 0" class="btn btn-danger btn-space" (click)="delete()">Eliminar</button>
             </div>
           </div>

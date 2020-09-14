@@ -11,13 +11,13 @@ export class AppComponent {
 
    //Arreglo del tipo Alumno que tiene 3 registros almacenados
    alumnoArray: Alumno[] = [
-    {id:1, name:"Alex", lastname:"Campos", age:35},
-    {id:2, name:"Maria", lastname:"Lopez", age:20},
-    {id:3, name:"Juan", lastname:"Castro", age:25}
+    {id:1, name:"Alex", lastname:"Campos", age:35, address:"Da house", phone:"70859346", mail:"correo@mail.com"},
+    {id:2, name:"Maria", lastname:"Lopez", age:20, address:"Da house", phone:"70859346", mail:"correo@mail.com"},
+    {id:3, name:"Juan", lastname:"Castro", age:25, address:"Da house", phone:"70859346", mail:"correo@mail.com"},
   ]
 
   //Atributo selecAlumno del tipo Alumno, por lo tanto puede almacenar un objeto
-  selectedAlumno: Alumno = {id:0,name:'',lastname:'',age:0};
+  selectedAlumno: Alumno = {id:0,name:'',lastname:'',age:0,address:'',phone:'',mail:''};
 
   //Un metodo que no retorna nada "void", recibe como parametro una variable del tipo Alumno, para ser asignada
   //al atributo selectedAlumno y poder ser mostrado en pantalla
@@ -32,7 +32,7 @@ export class AppComponent {
       this.selectedAlumno.id = this.alumnoArray.length + 1;
       this.alumnoArray.push(this.selectedAlumno);
     }
-    this.selectedAlumno = {id:0,name:'',lastname:'',age:0};
+    this.selectedAlumno = {id:0,name:'',lastname:'',age:0,address:'',phone:'',mail:''};
   }
 
   //Metodo que no retorna nada, no recibe parametro, elimina del arreglo el registro, pero antes muestra una pantalla
@@ -41,7 +41,7 @@ export class AppComponent {
   delete():void{
     if(confirm('¿Esta seguro de eliminar el registro?')){
       this.alumnoArray = this.alumnoArray.filter( x => x != this.selectedAlumno);
-      this.selectedAlumno = {id:0,name:'',lastname:'',age:0};
+      this.selectedAlumno = {id:0,name:'',lastname:'',age:0,address:'',phone:'',mail:''};
     }
   }
 }
