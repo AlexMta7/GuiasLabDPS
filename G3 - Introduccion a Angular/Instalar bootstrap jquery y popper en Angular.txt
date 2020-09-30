@@ -15,3 +15,9 @@ EN EL ARCHIVO ANGULAR.JSON
       "node_modules/bootstrap/dist/js/bootstrap.min.js",
       "node_modules/@popperjs/core/dist/umd/popper.min.js"
 ]
+
+
+/////////////////////////////////////////////////////////////////
+npm install
+	Instala las dependencias de Angular "node_modules" cuando se hace un pull o clone desde git en un repositorio
+	de Angular 
