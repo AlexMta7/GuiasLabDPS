@@ -1,0 +1,187 @@
+<div class="container-fluid bg-info mb-1">
+    <h1>Veterinaria de Lissette</h1>
+</div>
+<div class="container border col-md row row-cols-2 pt-2 mb-4 ml-0">
+    <div class="row border border-success col-md-4 mb-5 ml-5 pt-3 pr-4">
+        <div class="container col-md-12 ml-2">
+            <!-- <div class="row"> -->
+            <div class="col mt-2">
+            <h2>Formulario de paciente</h2>
+            </div>
+        
+            <!-- <form class="col"> -->
+                <div class="form-row pt-2">
+                    <div class="form-group col-md-7">
+                        <label>Nombre de titular</label>
+                        <input id="nombre" [(ngModel)]="nombre" type="text" class="form-control border border-success" placeholder="Nombre Apellido" required>   
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>ID Cliente</label>
+                        <input id="id" [(ngModel)]="id" type="text" class="form-control border border-success" placeholder="1234" required>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label>DUI</label>
+                    <input id="dui" [(ngModel)]="dui" type="text" class="form-control border border-success" placeholder="12345678-9">
+                </div>
+                <div class="form-group ">
+                    <label>Nombre de mascota</label>
+                    <input id="mascota" type="text" class="form-control border border-success" [(ngModel)]="mascota" placeholder="Tyson">
+                </div>
+                <div class="form-group ">
+                    <label>Tratamiento</label>
+                    <input id="tratamiento" type="text" class="form-control border border-success" [(ngModel)]="tratamiento" placeholder="Agrega una descripción">
+                </div>
+                <div class="form-group">
+                    <label>Medicamento</label>
+                    <!-- <input type="text" class="form-control border border-success" [(ngModel)]="medicamento"> -->
+                    <select class="form-control border border-success" [(ngModel)]="medicamento">
+                        <option *ngFor="let medi of medicinas" [value]="medi">{{medi}} </option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md mb-4">
+                        <label class="input-group">Costo</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-success">$</span>
+                            </div>
+                                <input id="costo" type="text" class="form-control border border-success" [(ngModel)]="costo">
+                            </div>
+                    </div>
+                    <div class="form-group col-md mb-4">
+                        <label class="input-group">Visitas</label>
+                        <input [(ngModel)]="visitas" id="visitas" type="text" class="form-control border border-success">
+                    </div>
+                </div>
+                <div class="form-row">
+                <button class="btn btn-danger col-md-5" type="submit" (click)="ingresar()">Ingresar paciente</button>
+                <!-- <button class="btn btn-danger col-md-5" >Limpiar</button> -->
+                </div>
+                <br>
+            <!-- </form> -->
+            <!-- </div> -->
+            <br>
+        </div>
+    </div>
+    <div [hidden]="contador==0" class="container border border-primary ml-4 mb-5">
+        <table [hidden]="contador==0" class="table mt-3 pl-9">
+            <thead class="thead-light">
+                <tr class="">
+                    <!-- <th>ID</th> -->
+                    <th>Nombre</th>
+                    <th>DUI</th>
+                    <th>Medicamento</th>
+                    <th>Costo</th>
+                    <th>Descuento</th>
+                    <th>visitas</th>
+                    <!-- <th>{{contador}} </th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of registro">
+                    <!-- <td class="table-info">{{cliente.id}} </td> -->
+                    <td class="table-info">{{cliente.nombre}} </td>
+                    <td class="table-info">{{cliente.dui}} </td>
+                    <td class="table-info">{{cliente.medicamento}} </td>
+                    <td class="table-info">$ {{cliente.costo}} </td>
+                    <td class="table-info">$ {{cliente.desc}} </td>
+                    <td class="table-info">{{cliente.visitas}} </td>
+                </tr>
+                <tr>Registro(s): {{contador}} </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Aquí es donde se mostraría la información resultante despues de verla en la tabla -->
+<div [hidden]="contador==0" class="container border row row-cols-2 ml-5">
+    <div class="container border border-primary mt-3 col-md-5 mb-4 " *ngFor="let control of registro">
+        <div class="container position col-md-11 ml-2">
+            <!-- <div class="row"> -->
+            <div class="col mt-3">
+            <h2>Registro de compra</h2>
+            </div>
+        
+            <!-- <form class="col"> -->
+                <div class="form-row pt-2">
+                    <div class="form-group col-md-7">
+                        <label>Nombre de titular</label>
+                        <input id="name" class="form-control border border-primary" type="text" value="{{control.nombre}} " readonly>  <!--Solamente de lectura--> 
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>ID Cliente</label>
+                        <input id="idm" type="text" class="form-control border border-primary" value="{{control.id}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label>DUI</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.dui}} " readonly>
+                    </div>
+                    <div class="form-group col-md">
+                        <label>Nombre de mascota</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.mascota}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label>Tratamiento</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.tratamiento}} " readonly>
+                    </div>
+                    <div class="form-group col-md">
+                        <label>Medicamento</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.medicamento}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    
+                    <div class="form-group col-md">
+                        <label class="input-group">Costo</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                                <input type="text" class="form-control border border-primary" value="{{control.costo}} " readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label class="input-group">Descuento</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.desc}} " readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md mb-5">
+                        <label class="input-group">Total</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.total}} " readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md mb-4">
+                        <label class="input-group">Visitas</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.visitas}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                <button class="btn btn-success col-md-5" type="submit" (click)="mostrarDatos()">Generar ticket</button>
+                <!-- <button class="btn btn-danger col-md-5" >Limpiar</button> -->
+                </div>
+                <br>
+            <!-- </form> -->
+            <!-- </div> -->
+            <br>
+        </div>
+    </div>
+    <br>
+</div>
+
+<br>
+
