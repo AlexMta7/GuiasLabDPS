@@ -1,3 +1,4 @@
+import { DeclareVarStmt } from '@angular/compiler';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
@@ -33,7 +34,7 @@ export class ProductService {
       costo: product.costo,
       visitas: product.visitas,
       // desc: product.desc,
-      // total: product.total,
+      // total: product.total
       // contador: product.contador
     })
   }
@@ -46,7 +47,8 @@ export class ProductService {
       tratamiento: product.tratamiento,
       medicamento: product.medicamento,
       costo: product.costo,
-      visitas: product.visitas
+      visitas: product.visitas,
+      // desc: product.desc
     })
   }
 

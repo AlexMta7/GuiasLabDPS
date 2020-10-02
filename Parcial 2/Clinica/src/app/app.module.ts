@@ -17,20 +17,28 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductListComponent } from './components/products/product-list/product-list.component';
 import { ProductComponent } from './components/products/product/product.component';
 
+//Animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ReportsComponent } from './components/products/reports/reports.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PacienteComponent,
     ProductsComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase  )
+    AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ProductService

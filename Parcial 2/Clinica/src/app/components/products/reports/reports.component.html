@@ -1,0 +1,87 @@
+<div  class="container border row row-cols-2">
+    <div class="container border border-primary mt-3 col-md-5 mb-4 " *ngFor="let control of productList">
+        <div class="container position col-md-11 ml-2">
+            <!-- <div class="row"> -->
+            <div class="col mt-3">
+            <h2>Registro de compra</h2>
+            </div>
+        
+            <!-- <form class="col"> -->
+                <div class="form-row pt-2">
+                    <div class="form-group col-md">
+                        <label>Nombre de titular</label>
+                        <input id="name" class="form-control border border-primary" type="text" value="{{control.nombre}} " readonly>  <!--Solamente de lectura--> 
+                    </div>
+                    <div class="form-group col-md">
+                        <label>ID Cliente</label>
+                        <input id="idm" type="text" class="form-control border border-primary" value="{{control.$key}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label>DUI</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.dui}} " readonly>
+                    </div>
+                    <div class="form-group col-md">
+                        <label>Nombre de mascota</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.mascota}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label>Tratamiento</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.tratamiento}} " readonly>
+                    </div>
+                    <div class="form-group col-md">
+                        <label>Medicamento</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.medicamento}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    
+                    <div class="form-group col-md">
+                        <label class="input-group">Costo</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                                <input type="text" class="form-control border border-primary" value="{{control.costo}} " readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md">
+                        <label class="input-group">Descuento</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.desc}} " readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md mb-5">
+                        <label class="input-group">Total</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text border border-primary">$</span>
+                            </div>
+                            <input type="text" class="form-control border border-primary" value="{{control.total}} " readonly>
+                        </div>
+                    </div>
+                    <div class="form-group col-md mb-4">
+                        <label class="input-group">Visitas</label>
+                        <input type="text" class="form-control border border-primary" value="{{control.visitas}} " readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                <button class="btn btn-success col-md-5" type="submit" (click)="mostrarDatos()">Generar ticket</button>
+                <!-- <button class="btn btn-danger col-md-5" >Limpiar</button> -->
+                </div>
+                <br>
+            <!-- </form> -->
+            <!-- </div> -->
+            <br>
+        </div>
+    </div>
+    <br>
+</div>

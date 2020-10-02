@@ -8,7 +8,10 @@ import { ProductService } from '../../../services/product.service';
 //Class
 import { Product } from '../../../models/product';
 
+import { ToastrService } from 'ngx-toastr';
+import { applySourceSpanToExpressionIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
+import { messaging } from 'firebase';
 
 @Component({
   selector: 'app-product',
@@ -18,32 +21,39 @@ import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/templa
 export class ProductComponent implements OnInit {
  
   medicinas =[];
+  desc: number = 0;
+  total: number = 0;
+  contador: number = 0;
   constructor(
-    public productService: ProductService) { }
+    public productService: ProductService,
+    public toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.resetForm();
     this.medicinas = ['','Parecetamol','Acetaminofén','Pastillas'];
     this.productService.getProducts();
-    this.resetForm();
   }
 
   onSubmit(productForm: NgForm)
   {
-    alert("accede");
-    if(productForm.value.$key == null){
-      this.productService.insertProduct(productForm.value);
+    try
+    {
+      if(productForm.value.$key == null){
+        this.productService.insertProduct(productForm.value);
+        this.toastr.success('Operación exitosa','Paciente agregado');
+        // this.productService.selectedProduct.contador ++;
+      }
+      else{
+        // this.productService.selectedProduct.descuento();
+        this.productService.updateProduct(productForm.value);
+        this.toastr.success('Operación exitosa','Registro modificado')
+      }
+      this.resetForm(productForm);
     }
-    else{
-      this.productService.updateProduct(productForm.value);
+    catch(e){
+      alert(e);
     }
-    this.resetForm(productForm);
-    alert("Actualizado");
     
-  }
-
-  ingresar(){
-    alert("Producto ingresado");
-
   }
 
   resetForm(productForm?: NgForm){

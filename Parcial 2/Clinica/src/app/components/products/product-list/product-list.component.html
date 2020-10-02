@@ -6,8 +6,9 @@
             <th>DUI</th>
             <th>Medicamento</th>
             <th>Costo</th>
-            <th>Descuento</th>
+            <!-- <th>Descuento</th>     ARREGLAR-->
             <th>visitas</th>
+            <th class="text-center">Opciones</th>
             <!-- <th>{{contador}} </th> -->
         </tr>
     </thead>
@@ -18,10 +19,15 @@
             <td class="table-info">{{pro.dui}} </td>
             <td class="table-info">{{pro.medicamento}} </td>
             <td class="table-info">$ {{pro.costo}} </td>
-            <!-- <td class="table-info">$ {{cliente.desc}} </td>  VOY EN EL MINUTO 55:54 -->
+            <!-- <td class="table-info">$ {{cliente.desc}} </td>    ARREGLAR-->
             <td class="table-info">{{pro.visitas}} </td>
-            <td>
-                <button class="btn btn-secondary" >Edit</button>
+            <td class="table-info">
+                <a class="btn btn-secondary text-white" (click)="onEdit(pro)" >
+                    <i class="far fa-edit">Edit</i>
+                </a>
+                <a class="btn btn-danger text-white" (click)="onDelete(pro.$key)">
+                    <i class="fas fa-trash-alt" ></i>
+                </a>
             </td>
         </tr>
         <!-- <tr>Registro(s): {{contador}} </tr> -->
