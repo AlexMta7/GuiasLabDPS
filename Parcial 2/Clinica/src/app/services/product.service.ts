@@ -1,3 +1,4 @@
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 
 //firebase
@@ -12,14 +13,17 @@ export class ProductService {
 
   productList: AngularFireList<any>;
   selectedProduct: Product = new Product();
+  
 
   constructor(private firebase: AngularFireDatabase) { }
 
-  getProduct(){
+  getProducts(){
     return this.productList = this.firebase.list('products');
   }
 
   insertProduct(product: Product){
+    // Necesitan pasar todos los datos, si hay un dato en el push que no se esta pasando por medio de
+    // ngModel no lo va a insertar porque no reconoce el dato (según lo que me ha ocurrido)
     this.productList.push({
       nombre: product.nombre,
       dui: product.dui,
@@ -27,7 +31,10 @@ export class ProductService {
       tratamiento: product.tratamiento,
       medicamento: product.medicamento,
       costo: product.costo,
-      visitas: product.visitas
+      visitas: product.visitas,
+      // desc: product.desc,
+      // total: product.total,
+      // contador: product.contador
     })
   }
 

@@ -1,1 +1,29 @@
-<p>product-list works!</p>
+<table class="table mt-3 pl-9"> <!-- [hidden]="contador==0" -->
+    <thead class="thead-light">
+        <tr class="">
+            <!-- <th>ID</th> -->
+            <th>Nombre</th>
+            <th>DUI</th>
+            <th>Medicamento</th>
+            <th>Costo</th>
+            <th>Descuento</th>
+            <th>visitas</th>
+            <!-- <th>{{contador}} </th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pro of productList">
+            <!-- <td class="table-info">{{cliente.id}} </td> -->
+            <td class="table-info">{{pro.nombre}} </td>
+            <td class="table-info">{{pro.dui}} </td>
+            <td class="table-info">{{pro.medicamento}} </td>
+            <td class="table-info">$ {{pro.costo}} </td>
+            <!-- <td class="table-info">$ {{cliente.desc}} </td>  VOY EN EL MINUTO 55:54 -->
+            <td class="table-info">{{pro.visitas}} </td>
+            <td>
+                <button class="btn btn-secondary" >Edit</button>
+            </td>
+        </tr>
+        <!-- <tr>Registro(s): {{contador}} </tr> -->
+    </tbody>
+</table>
