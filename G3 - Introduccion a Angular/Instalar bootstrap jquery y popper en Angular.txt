@@ -31,6 +31,13 @@ imports: [
    BrowserAnimationsModule
 ]
 
+GENERA COMPONENTES Y SERVICIOS
+ng g c components/products *(componente principal) 
+ng g c components/products/product-list *(para listar todos los registros) 
+ng g c components/products/product *(para mostrar un registro) 
+ng g cl models/product *(clase producto, para almacenar registros) 
+ng g s services/product *(servicio que se conectara con Firebase) 
+npm install ngx-toastr –save *(Librería para notificaciones en Angular)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 npm install
 	Instala las dependencias de Angular "node_modules" cuando se hace un pull o clone desde git en un repositorio
