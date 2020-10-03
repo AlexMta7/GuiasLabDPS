@@ -3,12 +3,18 @@ EN LA CONSOLA DE NODE
 npm install bootstrap --save
 npm install jquery --save
 npm install @popperjs/core --save
+{
+npm install firebase		SON UTILIZADOS PARA FIREBASE
+npm install angularfire2
+}
+npm install ngx-toastr   //Para un sistema de alertas en la aplicación
 
 EN EL ARCHIVO ANGULAR.JSON
 
 "styles": [
       "src/styles.css",
-      "node_modules/bootstrap/dist/css/bootstrap.min.css"
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "../node_modules/ngx-toastr/toastr.css
 ],
 "scripts": [
       "node_modules/jquery/dist/jquery.min.js", 
@@ -17,7 +23,15 @@ EN EL ARCHIVO ANGULAR.JSON
 ]
 
 
-/////////////////////////////////////////////////////////////////
+EN app.module.ts SE ACTIVAN LOS MODULOS PARA ANIMACIÓN DE ANGULAR
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+imports: [
+   BrowserAnimationsModule
+]
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 npm install
 	Instala las dependencias de Angular "node_modules" cuando se hace un pull o clone desde git en un repositorio
 	de Angular 
