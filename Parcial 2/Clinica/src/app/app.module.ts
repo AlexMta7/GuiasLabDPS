@@ -22,6 +22,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReportsComponent } from './components/products/reports/reports.component';
 
+//Auth
+// import { AngularFireModule } from '@angular/fire';  LO ESTABA IMPORTANDO NUEVAMENTE PERO YA ESTABA XD
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +39,12 @@ import { ReportsComponent } from './components/products/reports/reports.componen
     ProductsComponent,
     ProductListComponent,
     ProductComponent,
-    ReportsComponent
+    ReportsComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +53,9 @@ import { ReportsComponent } from './components/products/reports/reports.componen
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [
     ProductService
