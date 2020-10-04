@@ -41,6 +41,7 @@ export class AuthService {
           this.router.navigate(['dashboard']);
         });
         this.SetUserData(result.user);
+        this.toastr.success('Log in succesfully');
       }).catch((error) => {
        // window.alert("Por favor revisar credenciales")
          this.toastr.error(error.message);
@@ -52,6 +53,7 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* call function SendVerificaitonMail() when a new user signs and returns to the function*/
+        this.toastr.success('Email added successfully');
         this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -60,13 +62,13 @@ export class AuthService {
   }
 
   SendVerificationMail() {
-    // return this.afAuth.auth.currentUser.then(u => u.sendEmailVerification())
-    // .then(() => {
-    // this.router.navigate(['verify-email-address']);
-    // })
-
-    return this.afAuth.auth.currentUser.sendEmailVerification().then(function() {
-
+  
+    return this.afAuth.auth.currentUser.sendEmailVerification()
+    .then(() => {
+    this.router.navigate(['verify-email-address']);
+    this.toastr.info('Email sent succesfully');
+    }).catch((error) => {
+      this.toastr.error(error.message);
     })
   }
 
@@ -74,9 +76,9 @@ export class AuthService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
+      this.toastr.info('Password reset email sent, check your inbox.');
     }).catch((error) => {
-      window.alert(error)
+      this.toastr.error(error.message);
     })
   }
 
