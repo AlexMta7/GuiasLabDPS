@@ -10,11 +10,11 @@
                 <div class="form-row pt-2">
                     <div class="form-group col-md">
                         <label>Nombre de titular</label>
-                        <input id="name" class="form-control border border-primary" type="text" value="{{control.nombre}} " readonly>  <!--Solamente de lectura--> 
+                        <input class="form-control border border-primary" type="text" value="{{control.nombre}} " readonly>  <!--Solamente de lectura--> 
                     </div>
                     <div class="form-group col-md">
                         <label>ID Cliente</label>
-                        <input id="idm" type="text" class="form-control border border-primary" value="{{control.$key}} " readonly>
+                        <input type="text" class="form-control border border-primary" value="{{control.$key}} " readonly>
                     </div>
                 </div>
                 <div class="form-row">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                <button class="btn btn-success col-md-5" type="submit" (click)="mostrarDatos()">Generar ticket</button>
+                <button class="btn btn-success col-md-5" (click)="saveFile()">Generar ticket</button>
                 <!-- <button class="btn btn-danger col-md-5" >Limpiar</button> -->
                 </div>
                 <br>
