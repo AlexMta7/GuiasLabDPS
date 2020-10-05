@@ -7,9 +7,6 @@ import { Product } from '../../../models/product';
 import { ProductService } from '../../../services/product.service';
 
 import { ToastrService } from 'ngx-toastr';
-import { ɵBlockUntilFirstOperator } from 'angularfire2';
-import { convertToParamMap } from '@angular/router';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-reports',
@@ -48,44 +45,24 @@ export class ReportsComponent implements OnInit {
   }
 
   
-  saveFile(num:number){
-    /*"visitas":this.visitas++ de esta forma se autoincrementa*/
-    // for(let control of this.productList){
-    //   control.$key;
-    //   control.nombre;
-    //   control.dui;
-    //   control.mascota;
-    //   control.tratamiento;
-    //   control.medicamento;
-    //   control.costo;
-    //   control.descuento;
-    //   control.total;
-    //   control.visitas;
-
-    //   // this.textToSave = {
-    //   //   "ID: " : control.$key
-    //   //   // "Nombre: ": control.nombre,
-    //   //   // "Dui: ": control.dui,
-    //   //   // "Mascota: " : control.mascota,
-    //   //   // "Tratamiento" : control.tratamiento,
-    //   //   // "Medicamento" : control.medicamento,
-    //   //   // "Costo" : control.costo,
-    //   //   // "Descuento" :control.descuento,
-    //   //   // "Total" : control.total,
-    //   //   // "Visitas" : control.visitas
-    //   // };
-    //   this.textToSave = "ID: "+ control.$key + `<br>`
-    //   + "Nombre:" + control.nombre + console.log("\n");
-    // }
-
-    for(this.i = 0;this.i<num;this.i++){
+  saveFile(indice:number){    
+    for(this.i = 0;this.i<=indice;this.i++){
       // let sd = this.productList[this.i].$key;
-      this.textToSave = this.productList[this.i].nombre;
+      this.textToSave = 
+      + "Nombre: " + this.productList[this.i].nombre 
+      + "\nDui: " + this.productList[this.i].dui
+      + "\nMascota: " + this.productList[this.i].mascota
+      + "\nTratamiento: " + this.productList[this.i].tratamiento
+      + "\nMedicamento: " + this.productList[this.i].medicamento
+      + "\nCosto: " + this.productList[this.i].costo
+      + "\nDescuento: " + this.productList[this.i].descuento
+      + "\nTotal: " + this.productList[this.i].total
+      + "\nVisitas: " + this.productList[this.i].visitas;
     }
 
     this.textToSaveAsBlob = new Blob([this.textToSave], {type:"text/plain"});
     this.textToSaveAsURL = window.URL.createObjectURL(this.textToSaveAsBlob);
-    this.fileNameToSaveAs = "NewText";
+    this.fileNameToSaveAs = "Comprobante de compra";
 
     this.downloadLink.download = this.fileNameToSaveAs;
     // this.downloadLink.innerHTML = "Download File";
@@ -94,9 +71,8 @@ export class ReportsComponent implements OnInit {
   
     document.body.appendChild(this.downloadLink);
 
-    this.downloadLink.click();
-
-    
+    this.downloadLink.click();  
+    this.toastr.info("Ticket generado");
   }
 
   //No estoy ocupando este evento

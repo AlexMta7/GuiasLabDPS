@@ -1,5 +1,6 @@
 <div  class="container border row row-cols-2">
-    <div class="container border border-primary mt-3 col-md-5 mb-4 " *ngFor="let control of productList">
+    <div class="container border border-primary mt-3 col-md-5 mb-4 "
+     *ngFor="let control of productList; let indice=index">
         <div class="container position col-md-11 ml-2">
             <!-- <div class="row"> -->
             <div class="col mt-3">
@@ -74,8 +75,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                <button class="btn btn-success col-md-5" (click)="saveFile()">Generar ticket</button>
-                <!-- <button class="btn btn-danger col-md-5" >Limpiar</button> -->
+                <button class="btn btn-success col-md-5" (click)="saveFile(indice)">Generar ticket</button>
                 </div>
                 <br>
             <!-- </form> -->
