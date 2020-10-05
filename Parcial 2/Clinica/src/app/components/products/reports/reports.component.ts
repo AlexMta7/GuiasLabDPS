@@ -49,7 +49,7 @@ export class ReportsComponent implements OnInit {
     for(this.i = 0;this.i<=indice;this.i++){
       // let sd = this.productList[this.i].$key;
       this.textToSave = 
-      + "Nombre: " + this.productList[this.i].nombre 
+       "Nombre: " + this.productList[this.i].nombre 
       + "\nDui: " + this.productList[this.i].dui
       + "\nMascota: " + this.productList[this.i].mascota
       + "\nTratamiento: " + this.productList[this.i].tratamiento
