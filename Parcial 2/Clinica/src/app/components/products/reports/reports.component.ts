@@ -18,7 +18,7 @@ export class ReportsComponent implements OnInit {
   productList: Product[];
 
   //Objetos para guardar ticket
-  textToSave: any;
+  textToSave: string;
   // textToSaves: string;
   textToSaveAsBlob: Blob;
   textToSaveAsURL:string;
@@ -47,7 +47,6 @@ export class ReportsComponent implements OnInit {
   
   saveFile(indice:number){    
     for(this.i = 0;this.i<=indice;this.i++){
-      // let sd = this.productList[this.i].$key;
       this.textToSave = 
        "Nombre: " + this.productList[this.i].nombre 
       + "\nDui: " + this.productList[this.i].dui
