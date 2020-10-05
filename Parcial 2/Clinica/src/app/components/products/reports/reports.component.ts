@@ -19,7 +19,7 @@ export class ReportsComponent implements OnInit {
 
   //Objetos para guardar ticket
   textToSave: any;
-  // textToSave = Object.assign({},);
+  // textToSaves: string;
   textToSaveAsBlob: Blob;
   textToSaveAsURL:string;
   fileNameToSaveAs: string;
@@ -60,6 +60,7 @@ export class ReportsComponent implements OnInit {
       + "\nVisitas: " + this.productList[this.i].visitas;
     }
 
+    // this.textToSaves = document.getElementById("id").nodeValue; 
     this.textToSaveAsBlob = new Blob([this.textToSave], {type:"text/plain"});
     this.textToSaveAsURL = window.URL.createObjectURL(this.textToSaveAsBlob);
     this.fileNameToSaveAs = "Comprobante de compra";
