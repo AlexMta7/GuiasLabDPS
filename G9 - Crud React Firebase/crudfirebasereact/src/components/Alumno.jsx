@@ -80,7 +80,7 @@ const Alumnos = () => {
                     <button className="btn btn-outline-primary" onClick={() => setCurrentId(Alumno.id)}>Editar</button>
                     &nbsp;
                     &nbsp;
-                    <button className="btn btn-danger" onClick={() => onDeleteAlumno(Alumno.id)}>Eliminar</button>
+                    <button className="btn btn-outline-danger" onClick={() => onDeleteAlumno(Alumno.id)}>Eliminar</button>
                   </td>
                 </tr>
               ))}

@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootswatch/dist/lumen/bootstrap.min.css';
 
+import '../node_modules/material-design-icons';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
