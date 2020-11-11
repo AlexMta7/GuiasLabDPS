@@ -13,9 +13,10 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const fb = firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const db = fb.firestore();
 
 // Representa el proveedor de autenticación de inicio de sesión de Google.
 // Utilice esta clase para obtener

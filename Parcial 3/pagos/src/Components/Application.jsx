@@ -9,6 +9,7 @@ import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 
 import { toast, ToastContainer } from "react-toastify";
+import Empleados from "./Empleados";
 
 function Application() {
   // Asigna un user para leer el contexto actual.
@@ -19,7 +20,7 @@ function Application() {
 
 
   return (
-    user ? <ProfilePage />  // true 
+    user ? <Empleados />  // true 
       : // false
       <Router> 
           <SignIn path="/" />
