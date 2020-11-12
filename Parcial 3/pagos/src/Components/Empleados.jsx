@@ -45,7 +45,7 @@ const Empleados = () => {
     const onDeleteEmpleado = async (id) => {
         if (window.confirm("¿Seguro que desea eliminar a este empleado?")) {
             await db.collection("Empleados").doc(id).delete();
-            toast("Se elimino un Empleado", {type: "warning"});
+            toast("Se elimino un Empleado", {type: "error"});
         }
     };
 
@@ -60,7 +60,7 @@ const Empleados = () => {
                 toast("Se agrego un empleado", {type: "success"});
             } else {
                 await db.collection("Empleados").doc(currentId).update(EmpleadoObject);
-                toast("Se actualizo un empleado", {type: "warning"});
+                toast("Se actualizo un empleado", {type: "info"});
                 setCurrentId("");
             }
         } catch (error) {
