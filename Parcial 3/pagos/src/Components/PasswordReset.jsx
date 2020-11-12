@@ -37,7 +37,8 @@ const PasswordReset = () => {
       <div className="container-fluid pt-2 pb-3 mb-3">
         <div className="container border border-primary rounded pt-2 pb-3">
           
-          <label className="ml-4"><h1><span><FontAwesomeIcon icon={faLock} /></span> Recuperar contraseña</h1></label>
+          <label className="ml-4 mt-1 mb-1"><h1><span><FontAwesomeIcon icon={faLock} /></span> Recuperar contraseña</h1></label>
+          <hr/>
 
             <form action="">
               {/* Contiene el input */}

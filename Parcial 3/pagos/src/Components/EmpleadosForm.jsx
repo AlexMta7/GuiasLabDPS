@@ -1,4 +1,5 @@
-import { faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { text } from "@fortawesome/fontawesome-svg-core";
+import { faHourglass, faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase"; //Base de datos de Firebase
@@ -11,6 +12,11 @@ const EmpleadosForm = (props) => {
       nombre: "",
       apellido: "",
       horas: "",
+      isss: "",
+      afp: "",
+      renta: "",
+      sueldoT: "",
+      sueldoN: ""
     };
 
     const [values, setValues] = useState(initialStateValues);
@@ -47,11 +53,12 @@ const EmpleadosForm = (props) => {
     return (  
 <>
     {/* Contiene al formulario */}
-    <div className="container-fluid border">
+    <div className="container-fluid mb-4">
         <div className="container-fluid pt-2 pb-3 mb-3">
             <div className="container border border-primary rounded pt-2 pb-3">
                 <form onSubmit={handleSubmit}>
-                    <label className="ml-4"><h1> <span><FontAwesomeIcon icon={faUserCircle} /></span> Empleados</h1></label>
+                    <label className="ml-4 mt-2 mb-1"><h1> <span><FontAwesomeIcon icon={faUserCircle} /></span> Empleados</h1></label>
+                    <hr/>
                     {/* Contiene los input */}
                     <div className="container">
                         <div className="form-group">
@@ -59,19 +66,21 @@ const EmpleadosForm = (props) => {
                             <input type="text" className="form-control" placeholder="Ingrese nombre" 
                             value={values.nombre} name="nombre" onChange={handleInputChange}/>
                         </div>
-                        
+
                         <div className="form-group">
                             <label><span><FontAwesomeIcon icon={faUser} /></span> Apellido</label>
-                            <input type="text" value={values.apellido} name="apellido" placeholder="Ingrese apellido" className="form-control" onChange={handleInputChange}/>
+                            <input type="text" value={values.apellido} name="apellido" placeholder="Ingrese apellido" 
+                            className="form-control" onChange={handleInputChange}/>
                         </div>
-                        <div className="form-group input-group">
-                            <input type="text" value={values.horas} name="edad" placeholder="Ingrese horas trabajadas" 
+                        <div className="form-group">
+                            <label><span><FontAwesomeIcon icon={faHourglass} /></span> Horas</label>
+                            <input type="number" pattern="^[0-9]{0,12}" value={values.horas} name="horas" placeholder="Ingrese horas trabajadas" 
                             className="form-control" onChange={handleInputChange}/>
                         </div>
                     </div>
                     {/* Contiene el boton */}
-                    <div className="container">
-                        <button className="btn btn-outline-success btn-block">
+                    <div className="container mt-4 mb-2">
+                        <button className="btn btn-outline-primary btn-block">
                         {props.currentId === "" ? "Guardar" : "Actualizar"}
                         </button>
                     </div>

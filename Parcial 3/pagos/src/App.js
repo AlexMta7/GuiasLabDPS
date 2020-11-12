@@ -15,7 +15,7 @@ function App() {
     //   </div>
     // </UserProvider>
     <UserProvider>
-    <div className="container-fluid pb-3 pt-3 mt-5">
+    <div className="container-fluid pb-3 mt-5">
       <Application />
       <ToastContainer />
     </div>
