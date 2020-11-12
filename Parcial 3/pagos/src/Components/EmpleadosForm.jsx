@@ -127,7 +127,7 @@ const EmpleadosForm = (props) => {
         let sueldoN160 = parseFloat((sueldoT160 - isss160 - afp160 - renta160).toFixed(2));
 
         //Para las horas extra después de las 161
-        let sueldoT200 = parseFloat((horas * 11.50).toFixed(2));
+        let sueldoT200 = parseFloat(((200-160) * 11.50).toFixed(2));
         let isss200 = parseFloat((sueldoT200 * 0.0525).toFixed(2));
         let afp200 = parseFloat((sueldoT200 * 0.0688).toFixed(2));
         let renta200 = parseFloat((sueldoT200 * 0.1).toFixed(2));
