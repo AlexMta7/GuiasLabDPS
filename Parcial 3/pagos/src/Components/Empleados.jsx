@@ -106,7 +106,7 @@ const Empleados = () => {
     <hr/>
     <div className="container mt-5 ">
         <div className ="container border border-primary rounded ">
-            <h2 className="text-center pt-3"> <span><FontAwesomeIcon icon={faList} /></span>Lista empleados</h2>
+            <h2 className="text-center pt-3"> <span><FontAwesomeIcon icon={faList} /></span> Lista empleados</h2>
             <table className ="table table-hover mb-5">
                 <thead>
                     <tr className="text-center table-dark">
