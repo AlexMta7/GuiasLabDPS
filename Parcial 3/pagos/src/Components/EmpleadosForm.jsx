@@ -2,6 +2,7 @@ import { text } from "@fortawesome/fontawesome-svg-core";
 import { faHourglass, faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { db } from "../firebase"; //Base de datos de Firebase
 //import { toast } from "react-toastify";
 
@@ -27,10 +28,17 @@ const EmpleadosForm = (props) => {
     };
 
     const handleSubmit = (e) => {
+           
         e.preventDefault();
-    
-        props.addOrEditEmpleado(values);
-        setValues({ ...initialStateValues });
+
+        if (values.horas != "" && values.nombre != ""){
+            descuentos(values.horas);
+            props.addOrEditEmpleado(values);
+            setValues({ ...initialStateValues });
+        }
+        else{
+            toast("Las casillas nombre y horas no pueden quedar vacías", {type:"error"});
+        }
     };
 
     const getEmpleadoById = async (id) => {
@@ -49,6 +57,71 @@ const EmpleadosForm = (props) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.currentId]);
+
+    const descuentos = (horas) => {
+        if(horas >= 0){
+            if(horas <= 160){
+                toast("horas menores a 160", {type: "info"});
+                cientoSesenta(horas);
+            }
+            else if(horas <= 200){
+                toast("horas menores a 200", {type: "info"});
+                horas = horas - 160;
+                doscientos(horas);
+            }
+            else if(horas <= 250){
+                toast("horas menores a 250", {type: "info"});
+            }
+            else{
+                toast("El máximo de horas es 250 h", {type: "warning"});
+            }
+        }
+        else{
+            toast("Ingrese un número positivo", {type: "error"});
+        }
+    };
+
+    //Calcula los pagos cuando horas <= 160
+    const cientoSesenta = (horas) => {
+        values.sueldoT = (horas * 9.75).toFixed(2);
+        values.isss = (values.sueldoT * 0.0525).toFixed(2);
+        values.afp = (values.sueldoT * 0.0688).toFixed(2);
+        values.renta = (values.sueldoT * 0.1).toFixed(2);
+        values.sueldoN = (values.sueldoT - values.isss - values.afp - values.renta).toFixed(2);
+    };
+
+    //Calcula los pagos cuando horas <= 200
+    const doscientos = (horas) =>{
+        //Para 160 horas
+        let sueldoT160 = parseFloat((160 * 9.75).toFixed(2));
+        let isss160 = parseFloat((sueldoT160 * 0.0525).toFixed(2));
+        let afp160 = parseFloat((sueldoT160 * 0.0688).toFixed(2));
+        let renta160 = parseFloat((sueldoT160 * 0.1).toFixed(2));
+        let sueldoN160 = parseFloat((sueldoT160 - isss160 - afp160 - renta160).toFixed(2));
+
+        //Para las horas extra después de las 160
+        let sueldoT200 = parseFloat((horas * 11.50).toFixed(2));
+        let isss200 = parseFloat((sueldoT200 * 0.0525).toFixed(2));
+        let afp200 = parseFloat((sueldoT200 * 0.0688).toFixed(2));
+        let renta200 = parseFloat((sueldoT200 * 0.1).toFixed(2));
+        let sueldoN200 = parseFloat((sueldoT200 - isss200 - afp200 - renta200).toFixed(2));
+
+        //Suma de los 2 pagos
+        values.sueldoT = sueldoT160 + sueldoT200;
+        values.isss = isss160 + isss200;
+        values.afp = afp160 + afp200;
+        values.renta = renta160 + renta200;
+        values.sueldoN = sueldoN160 + sueldoN200;
+    };
+
+    //Calcula los pagos cuando horas <= 250
+    const doscientosCincuenta = (horas) => {
+        values.sueldoT = (horas * 12.50).toFixed(2);
+        values.isss = (values.sueldoT * 0.0525).toFixed(2);
+        values.afp = (values.sueldoT * 0.0688).toFixed(2);
+        values.renta = (values.sueldoT * 0.1).toFixed(2);
+        values.sueldoN = (values.sueldoT - values.isss - values.afp - values.renta).toFixed(2);
+    };
 
     return (  
 <>

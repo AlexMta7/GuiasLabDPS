@@ -9,7 +9,7 @@ import { UserContext } from "../providers/UserProvider";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, Router } from "@reach/router";
-import { faList, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faList, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Empleados = () => {
     // Asigna un user para leer el contexto del tema actual.
@@ -107,13 +107,18 @@ const Empleados = () => {
     <div className="container mt-5 ">
         <div className ="container border border-primary rounded ">
             <h2 className="text-center pt-3"> <span><FontAwesomeIcon icon={faList} /></span>Lista empleados</h2>
-            <table className ="table table-hover">
+            <table className ="table table-hover mb-5">
                 <thead>
                     <tr className="text-center table-dark">
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Horas</th>
-                        <th>Aciones</th>
+                        <th>ISSS</th>
+                        <th>AFP</th>
+                        <th>Renta</th>
+                        <th>Total</th>
+                        <th>Neto</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,10 +126,17 @@ const Empleados = () => {
                         <tr className="text-center table-primary" key={Empleado.id}>
                             <td>{Empleado.nombre}</td>
                             <td>{Empleado.apellido}</td>
-                            <td>{Empleado.horas}</td>
+                            <td>{Empleado.horas} h</td>
+                            <td>${Empleado.isss}</td>
+                            <td>${Empleado.afp}</td>
+                            <td>${Empleado.renta}</td>
+                            <td>${Empleado.sueldoT}</td>
+                            <td>${Empleado.sueldoN}</td>
                             <td>
-                                <a href="#empleado"><button className="btn btn-outline-primary" 
-                                onClick={() => setCurrentId(Empleado.id)}>Edit</button>
+                                <a href="#empleado">
+                                    <button className="btn btn-outline-primary" 
+                                    onClick={() => setCurrentId(Empleado.id)}>Edit <FontAwesomeIcon icon={faEdit}/>
+                                    </button>
                                 </a>
                                 <button className="btn btn-outline-danger" 
                                 onClick={() => onDeleteEmpleado(Empleado.id)}>Eliminar <FontAwesomeIcon icon={faTrashAlt}/>
@@ -133,10 +145,10 @@ const Empleados = () => {
                         </tr>
                     ))}
                     </tbody>
-                </table>
-            </div>
+            </table>
         </div>
-        </>
+    </div>
+    </>
     );
 };
 
