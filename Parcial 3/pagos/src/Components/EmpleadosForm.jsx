@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import { faHourglass, faUser, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from "react";
@@ -95,57 +94,57 @@ const EmpleadosForm = (props) => {
     //Calcula los pagos cuando horas <= 200
     const doscientos = (horas) =>{
         //Para 160 horas
-        let sueldoT160 = parseFloat((160 * 9.75).toFixed(2));
-        let isss160 = parseFloat((sueldoT160 * 0.0525).toFixed(2));
-        let afp160 = parseFloat((sueldoT160 * 0.0688).toFixed(2));
-        let renta160 = parseFloat((sueldoT160 * 0.1).toFixed(2));
-        let sueldoN160 = parseFloat((sueldoT160 - isss160 - afp160 - renta160).toFixed(2));
+        let sueldoT160 = parseFloat(160 * 9.75);
+        let isss160 = parseFloat(sueldoT160 * 0.0525);
+        let afp160 = parseFloat(sueldoT160 * 0.0688);
+        let renta160 = parseFloat(sueldoT160 * 0.1);
+        let sueldoN160 = parseFloat(sueldoT160 - isss160 - afp160 - renta160);
 
         //Para las horas extra después de las 160
-        let sueldoT200 = parseFloat((horas * 11.50).toFixed(2));
-        let isss200 = parseFloat((sueldoT200 * 0.0525).toFixed(2));
-        let afp200 = parseFloat((sueldoT200 * 0.0688).toFixed(2));
-        let renta200 = parseFloat((sueldoT200 * 0.1).toFixed(2));
-        let sueldoN200 = parseFloat((sueldoT200 - isss200 - afp200 - renta200).toFixed(2));
+        let sueldoT200 = parseFloat(horas * 11.50);
+        let isss200 = parseFloat(sueldoT200 * 0.0525);
+        let afp200 = parseFloat(sueldoT200 * 0.0688);
+        let renta200 = parseFloat(sueldoT200 * 0.1);
+        let sueldoN200 = parseFloat(sueldoT200 - isss200 - afp200 - renta200);
 
         //Suma de los 2 pagos
-        values.sueldoT = sueldoT160 + sueldoT200;
-        values.isss = isss160 + isss200;
-        values.afp = afp160 + afp200;
-        values.renta = renta160 + renta200;
-        values.sueldoN = sueldoN160 + sueldoN200;
+        values.sueldoT = (sueldoT160 + sueldoT200).toFixed(2);
+        values.isss = (isss160 + isss200).toFixed(2);
+        values.afp = (afp160 + afp200).toFixed(2);
+        values.renta = (renta160 + renta200).toFixed(2);
+        values.sueldoN = (sueldoN160 + sueldoN200).toFixed(2);
     };
 
     //Calcula los pagos cuando horas <= 250
     const doscientosCincuenta = (horas) => {
 
          //Para 160 horas
-        let sueldoT160 = parseFloat((160 * 9.75).toFixed(2));
-        let isss160 = parseFloat((sueldoT160 * 0.0525).toFixed(2));
-        let afp160 = parseFloat((sueldoT160 * 0.0688).toFixed(2));
-        let renta160 = parseFloat((sueldoT160 * 0.1).toFixed(2));
-        let sueldoN160 = parseFloat((sueldoT160 - isss160 - afp160 - renta160).toFixed(2));
+        let sueldoT160 = parseFloat(160 * 9.75);
+        let isss160 = parseFloat(sueldoT160 * 0.0525);
+        let afp160 = parseFloat(sueldoT160 * 0.0688);
+        let renta160 = parseFloat(sueldoT160 * 0.1);
+        let sueldoN160 = parseFloat(sueldoT160 - isss160 - afp160 - renta160);
 
         //Para las horas extra después de las 161
-        let sueldoT200 = parseFloat(((200-160) * 11.50).toFixed(2));
-        let isss200 = parseFloat((sueldoT200 * 0.0525).toFixed(2));
-        let afp200 = parseFloat((sueldoT200 * 0.0688).toFixed(2));
-        let renta200 = parseFloat((sueldoT200 * 0.1).toFixed(2));
-        let sueldoN200 = parseFloat((sueldoT200 - isss200 - afp200 - renta200).toFixed(2));
+        let sueldoT200 = parseFloat((200-160) * 11.50);
+        let isss200 = parseFloat(sueldoT200 * 0.0525);
+        let afp200 = parseFloat(sueldoT200 * 0.0688);
+        let renta200 = parseFloat(sueldoT200 * 0.1);
+        let sueldoN200 = parseFloat(sueldoT200 - isss200 - afp200 - renta200);
 
         //Para las horas extra despues de las 201
-        let sueldoT250 = parseFloat((horas * 12.50).toFixed(2));
-        let isss250 = parseFloat((sueldoT250 * 0.0525).toFixed(2));
-        let afp250 = parseFloat((sueldoT250 * 0.0688).toFixed(2));
-        let renta250 = parseFloat((sueldoT250 * 0.1).toFixed(2));
-        let sueldoN250 = parseFloat((sueldoT250 - isss250 - afp250 - renta250).toFixed(2));
+        let sueldoT250 = parseFloat(horas * 12.50);
+        let isss250 = parseFloat(sueldoT250 * 0.0525);
+        let afp250 = parseFloat(sueldoT250 * 0.0688);
+        let renta250 = parseFloat(sueldoT250 * 0.1);
+        let sueldoN250 = parseFloat(sueldoT250 - isss250 - afp250 - renta250);
 
         //Suma de los 3 pagos
-        values.sueldoT = sueldoT160 + sueldoT200 + sueldoT250;
-        values.isss = isss160 + isss200 + isss250;
-        values.afp = afp160 + afp200 + afp250;
-        values.renta = renta160 + renta200 + renta250;
-        values.sueldoN = sueldoN160 + sueldoN200 + sueldoN250;
+        values.sueldoT = (sueldoT160 + sueldoT200 + sueldoT250).toFixed(2);
+        values.isss = (isss160 + isss200 + isss250).toFixed(2);
+        values.afp = (afp160 + afp200 + afp250).toFixed(2);
+        values.renta = (renta160 + renta200 + renta250).toFixed(2);
+        values.sueldoN = (sueldoN160 + sueldoN200 + sueldoN250).toFixed(2);
     };
 
     return (  

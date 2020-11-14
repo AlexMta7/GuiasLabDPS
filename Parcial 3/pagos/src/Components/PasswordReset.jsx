@@ -9,7 +9,7 @@ import { faLock, faReply, faUser } from "@fortawesome/free-solid-svg-icons";
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
   const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   const onChangeHandler = event => {
     const { name, value } = event.currentTarget;

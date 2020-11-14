@@ -5,10 +5,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import PasswordReset from "./PasswordReset";
 
-import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 
-import { toast, ToastContainer } from "react-toastify";
 import Empleados from "./Empleados";
 
 function Application() {
