@@ -61,15 +61,21 @@ const EmpleadosForm = (props) => {
         if(horas >= 0){
             if(horas <= 160){
                 toast("horas menores o iguales a 160", {type: "info"});
+                toast("Hora pagada a $9.75", {type: "info"});
                 cientoSesenta(horas);
             }
             else if(horas <= 200){
                 toast("horas entre 161 y 200", {type: "info"});
+                toast("Horas pagadas a $9.75 hasta las 160 h", {type: "info"});
+                toast("Horas pagadas a $11.50 a partir de las 161 h hasta las 200 h", {type: "info"});
                 horas = horas - 160;
                 doscientos(horas);
             }
             else if(horas <= 250){
                 toast("horas entre 201 y 250", {type: "info"});
+                toast("Horas pagadas a $9.75 hasta las 160 h", {type: "info"});
+                toast("Horas pagadas a $11.50 a partir de las 161 h hasta las 200 h", {type: "info"});
+                toast("Horas pagadas a $12.50 a partir de las 201 h hasta las 250 h", {type: "info"});
                 horas = horas - 200;
                 doscientosCincuenta(horas);
             }
