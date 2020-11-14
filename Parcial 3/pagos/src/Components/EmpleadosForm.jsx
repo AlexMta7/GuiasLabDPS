@@ -78,7 +78,7 @@ const EmpleadosForm = (props) => {
             }
         }
         else{
-            toast("Ingrese un número positivo", {type: "error"});
+            toast("El número de horas debe ser un número positivo", {type: "error"});
         }
     };
 
