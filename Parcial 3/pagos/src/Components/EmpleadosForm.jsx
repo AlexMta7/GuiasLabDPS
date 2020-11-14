@@ -31,9 +31,16 @@ const EmpleadosForm = (props) => {
         e.preventDefault();
 
         if (values.horas != "" && values.nombre != ""){
+
             descuentos(values.horas);
-            props.addOrEditEmpleado(values);
-            setValues({ ...initialStateValues });
+            if(values.horas > 0){
+                props.addOrEditEmpleado(values);
+                setValues({ ...initialStateValues });
+            }
+            else{
+                toast("El número de horas debe ser un número positivo", {type: "error"});
+            }
+           
         }
         else{
             toast("Las casillas nombre y horas no pueden quedar vacías", {type:"error"});
@@ -83,9 +90,9 @@ const EmpleadosForm = (props) => {
                 toast("El máximo de horas es 250 h", {type: "error"});
             }
         }
-        else{
-            toast("El número de horas debe ser un número positivo", {type: "error"});
-        }
+        // else{
+        //     toast("El número de horas debe ser un número positivo", {type: "error"});
+        // }
     };
 
     //Calcula los pagos cuando horas <= 160
