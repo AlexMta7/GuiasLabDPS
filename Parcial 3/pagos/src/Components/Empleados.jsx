@@ -32,6 +32,29 @@ const Empleados = () => {
     const [Empleados, setEmpleados] = useState([]);
     const [currentId, setCurrentId] = useState("");
 
+    //Para mayor y menor
+    const getEmpleadosMayor = async () => {
+        db.collection("Empleados").orderBy("sueldoN", "desc").limit(1).onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id: doc.id });
+            });
+            setEmpleados(docs);
+        });
+    };
+
+    const getEmpleadosMenor = async () => {
+        db.collection("Empleados").orderBy("sueldoN", "asc").limit(1).onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id: doc.id });
+            });
+            setEmpleados(docs);
+        });
+    };
+
+////////
+
     const getEmpleados = async () => {
         db.collection("Empleados").onSnapshot((querySnapshot) => {
             const docs = [];
@@ -105,8 +128,18 @@ const Empleados = () => {
 
     <hr/>
     <div className="container mt-5 ">
-        <div className ="container border border-primary rounded ">
-            <h2 className="text-center pt-3"> <span><FontAwesomeIcon icon={faList} /></span> Lista empleados</h2>
+        <div className="container border border-primary rounded ">
+            <div className="col">
+                <div className="row">
+                    <h2 type="button" className="col pt-3" onClick={() => getEmpleados()}> <span><FontAwesomeIcon icon={faList} /></span> Lista empleados</h2>
+                    <button className="btn btn-success col-md-auto mt-4" onClick={() => getEmpleadosMayor()} type="button">
+                        Empleado con mayor salario
+                    </button>
+                    <button className="btn btn-success col-md-auto mt-4" onClick={() => getEmpleadosMenor()} type="button">
+                        Empleado con menor salario
+                    </button>
+                </div>
+            </div>
             <table className ="table table-hover mb-5">
                 <thead>
                     <tr className="text-center table-dark">
@@ -148,6 +181,9 @@ const Empleados = () => {
             </table>
         </div>
     </div>
+
+
+
     </>
     );
 };
