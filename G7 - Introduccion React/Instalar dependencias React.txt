@@ -1,0 +1,26 @@
+EN LA CONSOLA DE NODE
+
+npm install axios
+
+
+UTILIZADOS PARA FIREBASE
+{
+npm install --save firebase
+En primer lugar, necesitamos crear un nuevo archivo dedicado a Firebase. 
+Cree un archivo llamado.Firebase.jsx el directorio raíz “src”
+}
+
+UTILIZADOS PARA LAS NOTIFICACIONES
+npm install --save react-toastify
+
+UTILIZADOS PARA PAQUETE DE ESTILOS
+npm install bootswatch
+npm install bootstrap 
+npm install reactstrap
+FONT AWESOME para icons
+
+UTILIZA LOS ICONOS DE Material Design Icons
+npm install material-design-icons
+
+Repositorio de Git de Material Design Icons
+git clone http://github.com/google/material-design-icons/
